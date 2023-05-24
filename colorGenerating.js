@@ -56,8 +56,8 @@ function getNiceColors2 () {
 }
 
 function changeColors (response) {
-document.body.style.backgroundColor = response.results[0].palette[2];
-document.body.style.color = response.results[0].palette[0];
+document.body.style.backgroundColor = response.results[0].palette[1];
+document.body.style.color = response.results[0].palette[2];
 
 var h1Elements = document.getElementsByTagName("h1");
 for(var i = 0; i < h1Elements.length; i++) {
