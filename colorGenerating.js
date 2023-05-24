@@ -12,16 +12,16 @@ window.onload = () => {
 
 function getNiceColors() {
 	const json_data = {
-		"mode":"diffusion",
-		"num_colors":"5",
+		"mode":"transformer",
+		"num_colors":"4",
 		"temperature":"2.4",
 		"num_results":"1",
-		"adjacency":[ "0", "0", "0", "0", "0", 
-			"0", "0", "0", "0","0",
-			"0", "0", "0", "0","0",
-			"0", "0", "0", "0","0",
-			"0", "0", "0", "0", "0"],
-		"palette":["-", "-", "-", "-","-"]
+		"adjacency":[ "0", "10", "65", "45", 
+			"0", "0", "45", "30",
+			"0", "0", "0", "0",
+			"0", "0", "0", "0",
+			"0", "0", "0", "0"],
+		"palette":["-", "-", "-", "-"]
 	}
 
 	fetch("https://api.huemint.com/color", {
