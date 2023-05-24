@@ -31,6 +31,7 @@ function getNiceColors() {
 	"method": "POST"
 	}).then((response) => response.json())
 	.then((responseJson) => {
+		console.log(responseJson);
 		changeColors(responseJson);
 		localStorage.setItem('colorTheme', JSON.stringify(responseJson));
 	})
