@@ -66,7 +66,7 @@ var links = document.getElementsByTagName("a");
 for(var i=0;i<links.length;i++) {
 		if(links[i].href)
 		{
-			links[i].style.color = response.results[0].palette[0];
+			links[i].style.color = response.results[0].palette[3];
 		}
 	}
 }
