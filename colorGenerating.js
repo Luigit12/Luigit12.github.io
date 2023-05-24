@@ -19,7 +19,6 @@ function getNiceColors() {
 		"adjacency":[ "0", "10", "65", "45", 
 			"0", "0", "45", "30",
 			"0", "0", "0", "0",
-			"0", "0", "0", "0",
 			"0", "0", "0", "0"],
 		"palette":["-", "-", "-", "-"]
 	}
@@ -57,13 +56,13 @@ function getNiceColors2 () {
 }
 
 function changeColors (response) {
-document.body.style.backgroundColor = response.results[0].palette[4];
-document.body.style.color = response.results[0].palette[3];
+document.body.style.backgroundColor = response.results[0].palette[2];
+document.body.style.color = response.results[0].palette[0];
 
 var h1Elements = document.getElementsByTagName("h1");
 for(var i = 0; i < h1Elements.length; i++) {
-	h1Elements[i].style.backgroundColor = response.results[0].palette[2];
-	h1Elements[i].style.color = response.results[0].palette[1];
+	h1Elements[i].style.backgroundColor = response.results[0].palette[3];
+	h1Elements[i].style.color = response.results[0].palette[0];
 }
 var links = document.getElementsByTagName("a");
 for(var i=0;i<links.length;i++) {
