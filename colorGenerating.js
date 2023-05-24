@@ -14,7 +14,7 @@ function getNiceColors() {
 	const json_data = {
 		"mode":"transformer",
 		"num_colors":"4",
-		"temperature":"2.4",
+		"temperature":"1.3",
 		"num_results":"1",
 		"adjacency":["0","10","65","45","0","0","45","30","0","0","0","0","0","0","0","0"],
 		"palette":["-", "-", "-", "-"]
