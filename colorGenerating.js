@@ -6,7 +6,8 @@ window.onload = () => {
 	if (localColorTheme) {
 		changeColors(JSON.parse(localColorTheme));
 	} else {
-		getNiceColors();
+		console.log("no theme yet")
+		//getNiceColors();
 	}
 }
 
