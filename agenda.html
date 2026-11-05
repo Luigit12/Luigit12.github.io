@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luit van Wees</title>
+
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="colorGenerating.js"></script>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <h1>Luit van Wees</h1>
+
+    	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">Over Mij</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+			<li><a href="contact.html">Contact</a></li>
+      <li><button onclick="getNiceColors()">Verander Thema</button></li>
+		</ul>
+	</nav>
+    <h2>Agenda</h2>
+
+    <ul id="next-gigs">
+ <li>
+  Geen openbaar evenement op de planning :/
+ </li>
+ <li>
+  Feeds:
+  <a href="https://www.caltorss.com/api/convert?ics=BYFxAcGcC4HpYMYEMA2BTAdgEyQJwHQDmA9sYevgsQLaKqY66wCWyKsaATAmgEa+cADAEYAnABYAHADNJwzgDZO00SOmcArAHZewjeIkJRCDRrQLJfLQGZRwy+PEJrWDVi3TeCLJ3FYFAKTigoS4xACu4JT02HhEpORolDSw4OG8KKywvEiQrPiskEA">
+   RSS
+  </a>
+  ,
+  <a href="https://calendar.google.com/calendar/ical/e2cebb201948f81262f901f257b15494c9c55e68eb73918e44c3d5d7fbcd24d6%40group.calendar.google.com/public/basic.ics">
+   iCal
+  </a>
+  .
+ </li>
+</ul>
+<script charset="utf-8" type="text/javascript">
+ jQuery(function(){
+  // Get list of upcoming iCal events formatted in JSON
+    jQuery.getJSON("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.caltorss.com%2Fapi%2Fconvert%3Fics%3DBYFxAcGcC4HpYMYEMA2BTAdgEyQJwHQDmA9sYevgsQLaKqY66wCWyKsaATAmgEa%2BcADAEYAnABYAHADNJwzgDZO00SOmcArAHZewjeIkJRCDRrQLJfLQGZRwy%2BPEJrWDVi3TeCLJ3FYFAKTigoS4xACu4JT02HhEpORolDSw4OG8KKywvEiQrPiskEA", function(data){
+      // Utility method to pad a string on the left
+      // Source: https://sajjadhossain.com/2008/10/31/javascript-string-trimming-and-padding/
+      
+      function lpad(str, pad_string, length) {
+        var str = new String(str);
+        while (str.length < length)
+          str = pad_string + str;
+        return str;
+      };
+      // Parse and render each event
+      jQuery.each(data.items, function(i, item){
+        console.log(item);
+        
+        if(i == 0) {
+          jQuery("#next-gigs li").first().hide();
+        };
+        var event_url = jQuery.trim(item.link);
+        var event_header = item.title;
+        if(event_url.length > 0) {
+          event_header = "<a href='" + event_url + "'>" + event_header + "</a>";
+        };
+
+        // Format the date string
+        var d = new Date(item.pubDate);
+        var d_string = '<strong>' + d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + '</strong>';
+        if(d.getHours() != 0 || d.getMinutes() != 0) {
+          d_string = d_string + ' at ' + lpad(d.getHours(), '0', 2) + ':' + lpad(d.getMinutes(), '0', 2);
+        };
+        // Render the event
+        jQuery("#next-gigs li").last().before(
+          "<li><strong>"
+          + event_header
+          + "</strong>"
+          + "<br>"
+          + item.content
+          + "</li>"
+          + "<br>"
+        );
+      });
+    });
+  });
+</script>
+
+  </body>
+
+  <footer class="foot">
+    <ul>
+      
+    <li><a href="mailto:mailnaar@luit.cc">mailnaar@luit.cc</a></li>
+      
+    </ul>
+    <!-- <ul>
+      <li><a href="http://www.fsf.org/fb"><img src="images/no-facebook.png" width="150" height="47" alt="Not f'd — you won't find us on Facebook"></a></li>
+    </ul>-->
+  </footer>
+</html>
