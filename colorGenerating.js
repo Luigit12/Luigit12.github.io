@@ -70,4 +70,10 @@ for(var i=0;i<links.length;i++) {
 			links[i].style.color = response.results[0].palette[3];
 		}
 	}
+
+var buttons = document.getElementsByTagName("button");
+for(var i=0;i<buttons.length;i++) {
+		buttons[i].style.color = response.results[0].palette[0];
+		buttons[i].style.backgroundColor = response.results[0].palette[3];
+	}
 }

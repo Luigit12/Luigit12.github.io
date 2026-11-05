@@ -1,6 +1,6 @@
 html {
 	background-image: url('images/background4.jpg');
-	background-color: #160717;
+	background-color: #ffffff;
 	color: white;
 	cursor: help;
 }
@@ -46,11 +46,25 @@ img {
 	margin-right: auto;
 }
 
+button {
+	background-color: #ffffff;
+	border: none;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	cursor: pointer;
+}
+
 footer {
 	text-align: center;
+	display: inline;
+	margin-left: 2em;
+	margin-right: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 footer ul li {
+	text-align: center;
 	display: inline;
 	margin-left: 2em;
 	margin-right: 2em;
